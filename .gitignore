@@ -142,4 +142,6 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
 
-/generated/prisma
+# Arquivos temporários de teste do Prisma
+temp-repl.js
+temp-desafio.js
