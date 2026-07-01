@@ -1,0 +1,15 @@
+info:
+  name: " PUT /alunos/:id — Atualizar aluno"
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: https://fuzzy-goggles-q7gxvvjqrvjgfx95j-3000.app.github.dev/alunos
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
