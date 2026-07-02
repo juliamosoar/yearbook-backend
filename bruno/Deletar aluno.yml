@@ -1,0 +1,15 @@
+info:
+  name: Deletar aluno
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: https://fuzzy-goggles-q7gxvvjqrvjgfx95j-3000.app.github.dev/alunos/
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
