@@ -1,0 +1,15 @@
+info:
+  name: Validação
+  type: http
+  seq: 12
+
+http:
+  method: POST
+  url: https://fuzzy-goggles-q7gxvvjqrvjgfx95j-3000.app.github.dev/mensagens
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
