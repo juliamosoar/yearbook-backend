@@ -1,19 +1,24 @@
 info:
   name: DELETE - Deletar mensagem --- /mensagens/:id
   type: http
-  seq: 13
+  seq: 10
 
 http:
   method: DELETE
-  url: https://fuzzy-goggles-q7gxvvjqrvjgfx95j-3000.app.github.dev/mensagens
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens/4
   auth: inherit
 
 runtime:
   scripts:
     - type: tests
       code: |-
-        test("deve retornar status 204", function() {
-          expect(res.getStatus()).to.equal(204);
+        test("deve retornar status 404", function() {
+          expect(res.getStatus()).to.equal(404);
+        });
+
+        test("deve seguir o padrão { erro: '...' }", function() {
+          expect(res.getBody()).to.have.property('erro');
+          expect(res.getBody().erro).to.equal('Aluno não encontrado');
         });
 
 settings:

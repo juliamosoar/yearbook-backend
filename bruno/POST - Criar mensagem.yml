@@ -1,11 +1,11 @@
 info:
   name: POST - Criar mensagem ---/mensagens
   type: http
-  seq: 11
+  seq: 7
 
 http:
   method: POST
-  url: https://fuzzy-goggles-q7gxvvjqrvjgfx95j-3000.app.github.dev/mensagens
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens
   body:
     type: json
     data: |-

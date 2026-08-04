@@ -1,11 +1,11 @@
 info:
   name: POST - Criar mensagem ---/mensagens - error
   type: http
-  seq: 14
+  seq: 8
 
 http:
   method: POST
-  url: https://fuzzy-goggles-q7gxvvjqrvjgfx95j-3000.app.github.dev/mensagens
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens
   body:
     type: json
     data: |-
@@ -19,8 +19,12 @@ runtime:
   scripts:
     - type: tests
       code: |-
-        test("deve retornar status 400 sem texto", function() {
+        test("deve retornar status 400", function() {
           expect(res.getStatus()).to.equal(400);
+        });
+
+        test("deve seguir o padrão { erro: '...' }", function() {
+          expect(res.getBody()).to.have.property('erro');
         });
 
 settings:

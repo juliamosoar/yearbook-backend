@@ -14,7 +14,7 @@ const selectSemSenha = {
 };
 
 // GET /alunos — lista todos os alunos
-export async function listarAlunos(req, res) {
+export async function listarAlunos(req, res, next) {
   try {
     const alunos = await prisma.aluno.findMany({
       select: selectSemSenha,
@@ -22,13 +22,14 @@ export async function listarAlunos(req, res) {
 
     res.json(alunos);
   } catch (error) {
+    next(erro);  // passa o erro para o middleware global
     console.error(error);
     res.status(500).json({ erro: 'Erro ao listar alunos' });
   }
 }
 
 // GET /alunos/:id — busca aluno por ID
-export async function buscarAluno(req, res) {
+export async function buscarAluno(req, res, next) {
   try {
     const { id } = req.params;
 
@@ -47,11 +48,12 @@ export async function buscarAluno(req, res) {
   } catch (error) {
     console.error(error);
     res.status(500).json({ erro: 'Erro ao buscar aluno' });
+    next(erro);  // passa o erro para o middleware global
   }
 }
 
 // POST /alunos — cria novo aluno
-export async function criarAluno(req, res) {
+export async function criarAluno(req, res, next) {
   try {
     const {
       nome,
@@ -87,6 +89,7 @@ export async function criarAluno(req, res) {
 
     res.status(201).json(alunoCriado);
   } catch (error) {
+    next(erro);  // passa o erro para o middleware global
     console.error(error);
     res.status(500).json({
       erro: 'Erro ao criar aluno',
@@ -95,7 +98,7 @@ export async function criarAluno(req, res) {
 }
 
 // PUT /alunos/:id — atualiza aluno
-export async function atualizarAluno(req, res) {
+export async function atualizarAluno(req, res, next) {
   try {
     const { id } = req.params;
 
@@ -135,7 +138,7 @@ export async function atualizarAluno(req, res) {
 }
 
 // DELETE /alunos/:id — remove aluno
-export async function deletarAluno(req, res) {
+export async function deletarAluno(req, res, next) {
   try {
     const { id } = req.params;
 
