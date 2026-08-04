@@ -1,5 +1,5 @@
 info:
-  name: Deletar mensagem
+  name: DELETE - Deletar mensagem --- /mensagens/:id
   type: http
   seq: 13
 
@@ -8,8 +8,17 @@ http:
   url: https://fuzzy-goggles-q7gxvvjqrvjgfx95j-3000.app.github.dev/mensagens
   auth: inherit
 
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("deve retornar status 204", function() {
+          expect(res.getStatus()).to.equal(204);
+        });
+
 settings:
   encodeUrl: true
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+​

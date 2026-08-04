@@ -1,0 +1,31 @@
+info:
+  name: POST - Criar mensagem ---/mensagens
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: https://fuzzy-goggles-q7gxvvjqrvjgfx95j-3000.app.github.dev/mensagens
+  body:
+    type: json
+    data: |-
+      {
+        "texto": "Salve, turma! Último ano!",
+        "autorId": 1
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("deve retornar status 204", function() {
+          expect(res.getStatus()).to.equal(204);
+        });
+
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
