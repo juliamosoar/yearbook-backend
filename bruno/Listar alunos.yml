@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: https://fuzzy-goggles-q7gxvvjqrvjgfx95j-3000.app.github.dev/alunos
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/alunos
   auth: inherit
 
 runtime:

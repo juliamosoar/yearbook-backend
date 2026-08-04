@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import logger from './middlewares/logger.js';
 import alunosRouter from './routes/alunos.js';
