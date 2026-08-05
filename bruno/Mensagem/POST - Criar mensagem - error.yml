@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens
+  url: "{{baseUrl}}mensagens"
   body:
     type: json
     data: |-
