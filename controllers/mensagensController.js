@@ -1,7 +1,7 @@
 import prisma from '../prisma/client.js';
 
 // GET /mensagens — lista todas as mensagens (mais recentes primeiro)
-export async function listarMensagens(req, res) {
+export async function listarMensagens(req, res, next) {
   try {
     const mensagens = await prisma.mensagem.findMany({
       orderBy: { criadoEm: 'desc' },
@@ -16,8 +16,9 @@ export async function listarMensagens(req, res) {
     });
 
     res.json(mensagens);
-  } catch (error) {
-    console.error(error);
+  } catch (erro) {
+    next(erro);  // passa o erro para o middleware global
+    console.error(erro);
     res.status(500).json({
       erro: 'Erro ao listar mensagens.',
     });
@@ -25,7 +26,7 @@ export async function listarMensagens(req, res) {
 }
 
 // POST /mensagens — cria uma nova mensagem
-export async function criarMensagem(req, res) {
+export async function criarMensagem(req, res, next) {
   try {
     const { texto, imagemUrl, autorId } = req.body;
 
@@ -45,8 +46,9 @@ export async function criarMensagem(req, res) {
     });
 
     res.status(201).json(mensagem);
-  } catch (error) {
-    console.error(error);
+  } catch (erro) {
+    next(erro);  // passa o erro para o middleware global
+    console.error(erro);
     res.status(500).json({
       erro: 'Erro ao criar mensagem.',
     });
@@ -54,7 +56,7 @@ export async function criarMensagem(req, res) {
 }
 
 // DELETE /mensagens/:id — deleta uma mensagem
-export async function deletarMensagem(req, res) {
+export async function deletarMensagem(req, res, next) {
   try {
     const id = Number(req.params.id);
 
@@ -72,7 +74,7 @@ export async function deletarMensagem(req, res) {
 
     if (!mensagem) {
       return res.status(404).json({
-        erro: 'Mensagem não encontrada.',
+        erro: 'Mensagem não encontrada',
       });
     }
 
@@ -82,8 +84,8 @@ export async function deletarMensagem(req, res) {
     });
 
     res.status(204).send();
-  } catch (error) {
-    console.error(error);
+  } catch (erro) {
+    console.error(erro);
     res.status(500).json({
       erro: 'Erro ao deletar mensagem.',
     });

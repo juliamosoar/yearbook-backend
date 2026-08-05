@@ -1,0 +1,21 @@
+info:
+  name: PUT  - Atualizar aluno --- /alunos/:id
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/alunos/16
+  body:
+    type: json
+    data: |-
+      {
+        "cidade": "Montes Claros"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

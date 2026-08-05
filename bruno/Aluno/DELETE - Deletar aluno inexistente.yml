@@ -1,0 +1,28 @@
+info:
+  name: DELETE - Deletar aluno inexistente --- /alunos/:id
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/alunos/999
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("deve retornar status 404", function() {
+          expect(res.getStatus()).to.equal(404);
+        });
+
+        test("deve seguir o padrão { erro: '...' }", function() {
+          expect(res.getBody()).to.have.property('erro');
+          expect(res.getBody().erro).to.equal('Aluno não encontrado');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

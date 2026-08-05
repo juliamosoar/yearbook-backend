@@ -1,0 +1,34 @@
+info:
+  name: POST - Criar mensagem ---/mensagens
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens
+  body:
+    type: json
+    data: |-
+      {
+        "texto": "Salve, turma! Último ano!",
+        "autorId": 1
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("deve retornar status 201", function() {
+          expect(res.getStatus()).to.equal(201);
+        });
+
+        test("deve conter campo texto", function() {
+          expect(res.getBody().texto).to.equal('Salve, turma! Último ano!');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

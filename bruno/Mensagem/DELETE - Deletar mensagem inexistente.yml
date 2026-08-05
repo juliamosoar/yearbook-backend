@@ -1,0 +1,27 @@
+info:
+  name: DELETE - Deletar mensagem inexistente --- /mensagens/999
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens/999
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("deve retornar status 404", function() {
+          expect(res.getStatus()).to.equal(404);
+        });
+
+        test("deve seguir o padrão { erro: '...' }", function() {
+          expect(res.getBody().erro).to.equal('Mensagem não encontrada');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

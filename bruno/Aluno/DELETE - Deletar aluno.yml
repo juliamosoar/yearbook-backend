@@ -1,0 +1,24 @@
+info:
+  name: DELETE - Deletar aluno --- /alunos/:id copy
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/alunos/16
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("deve retornar status 204", function() {
+          expect(res.getStatus()).to.equal(204);
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+​
