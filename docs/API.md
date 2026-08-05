@@ -8,8 +8,13 @@ Base URL (produção): `https://yearbook-backend.vercel.app`
 - Rotas protegidas exigem header `Authorization: Bearer <token>`
 - O campo `senhaHash` nunca é retornado em nenhuma resposta
 - Erros seguem o formato `{ "erro": "mensagem descritiva" }`
+- CORS: Habilitado para qualquer origem (*), permitindo requisições de qualquer domínio (localhost, Vercel, etc.) sem configurações adicionais
 
 ---
+
+## Cors
+
+Esta API possui suporte a CORS para qualquer origem (Access-Control-Allow-Origin: *). Ela pode ser consumida diretamente por qualquer domínio ou ambiente de desenvolvimento (como localhost ou instâncias na Vercel) sem a necessidade de proxy ou configurações adicionais no cliente.
 
 ## Auth
 
