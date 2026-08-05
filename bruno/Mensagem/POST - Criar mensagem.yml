@@ -1,7 +1,7 @@
 info:
-  name: POST - Criar mensagem ---/mensagens - error
+  name: POST - Criar mensagem ---/mensagens
   type: http
-  seq: 8
+  seq: 2
 
 http:
   method: POST
@@ -10,7 +10,7 @@ http:
     type: json
     data: |-
       {
-        "",
+        "texto": "Salve, turma! Último ano!",
         "autorId": 1
       }
   auth: inherit
@@ -19,12 +19,12 @@ runtime:
   scripts:
     - type: tests
       code: |-
-        test("deve retornar status 400", function() {
-          expect(res.getStatus()).to.equal(400);
+        test("deve retornar status 201", function() {
+          expect(res.getStatus()).to.equal(201);
         });
 
-        test("deve seguir o padrão { erro: '...' }", function() {
-          expect(res.getBody()).to.have.property('erro');
+        test("deve conter campo texto", function() {
+          expect(res.getBody().texto).to.equal('Salve, turma! Último ano!');
         });
 
 settings:

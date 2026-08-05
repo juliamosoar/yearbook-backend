@@ -1,11 +1,11 @@
 info:
-  name: DELETE - Deletar aluno --- /alunos/:id
+  name: DELETE - Deletar aluno inexistente --- /alunos/:id
   type: http
   seq: 6
 
 http:
   method: DELETE
-  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/alunos/17
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/alunos/999
   auth: inherit
 
 runtime:
@@ -25,4 +25,4 @@ settings:
   encodeUrl: true
   timeout: 0
   followRedirects: true
-  maxRedirects: 5​
+  maxRedirects: 5

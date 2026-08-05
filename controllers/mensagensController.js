@@ -16,9 +16,9 @@ export async function listarMensagens(req, res, next) {
     });
 
     res.json(mensagens);
-  } catch (error) {
+  } catch (erro) {
     next(erro);  // passa o erro para o middleware global
-    console.error(error);
+    console.error(erro);
     res.status(500).json({
       erro: 'Erro ao listar mensagens.',
     });
@@ -46,9 +46,9 @@ export async function criarMensagem(req, res, next) {
     });
 
     res.status(201).json(mensagem);
-  } catch (error) {
+  } catch (erro) {
     next(erro);  // passa o erro para o middleware global
-    console.error(error);
+    console.error(erro);
     res.status(500).json({
       erro: 'Erro ao criar mensagem.',
     });
@@ -74,7 +74,7 @@ export async function deletarMensagem(req, res, next) {
 
     if (!mensagem) {
       return res.status(404).json({
-        erro: 'Mensagem não encontrada.',
+        erro: 'Mensagem não encontrada',
       });
     }
 
@@ -84,9 +84,8 @@ export async function deletarMensagem(req, res, next) {
     });
 
     res.status(204).send();
-  } catch (error) {
-    next(erro);  // passa o erro para o middleware global
-    console.error(error);
+  } catch (erro) {
+    console.error(erro);
     res.status(500).json({
       erro: 'Erro ao deletar mensagem.',
     });

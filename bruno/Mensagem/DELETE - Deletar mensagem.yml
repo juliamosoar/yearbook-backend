@@ -1,18 +1,11 @@
 info:
-  name: POST - Criar mensagem ---/mensagens
+  name: DELETE - Deletar mensagem --- /mensagens/:id
   type: http
-  seq: 7
+  seq: 4
 
 http:
-  method: POST
-  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens
-  body:
-    type: json
-    data: |-
-      {
-        "texto": "Salve, turma! Último ano!",
-        "autorId": 1
-      }
+  method: DELETE
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens/15
   auth: inherit
 
 runtime:
@@ -22,7 +15,6 @@ runtime:
         test("deve retornar status 204", function() {
           expect(res.getStatus()).to.equal(204);
         });
-
 
 settings:
   encodeUrl: true

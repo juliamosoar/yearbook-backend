@@ -21,9 +21,9 @@ export async function listarAlunos(req, res, next) {
     });
 
     res.json(alunos);
-  } catch (error) {
+  } catch (erro) {
     next(erro);  // passa o erro para o middleware global
-    console.error(error);
+    console.error(erro);
     res.status(500).json({ erro: 'Erro ao listar alunos' });
   }
 }
@@ -45,10 +45,10 @@ export async function buscarAluno(req, res, next) {
     }
 
     res.json(aluno);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ erro: 'Erro ao buscar aluno' });
+  } catch (erro) {
     next(erro);  // passa o erro para o middleware global
+    console.error(erro);
+    res.status(500).json({ erro: 'Erro ao buscar aluno' });
   }
 }
 
@@ -88,9 +88,9 @@ export async function criarAluno(req, res, next) {
     });
 
     res.status(201).json(alunoCriado);
-  } catch (error) {
+  } catch (erro) {
     next(erro);  // passa o erro para o middleware global
-    console.error(error);
+    console.error(erro);
     res.status(500).json({
       erro: 'Erro ao criar aluno',
     });
@@ -129,8 +129,8 @@ export async function atualizarAluno(req, res, next) {
     });
 
     res.json(alunoAtualizado);
-  } catch (error) {
-    console.error(error);
+  } catch (erro) {
+    console.error(erro);
     res.status(404).json({
       erro: 'Aluno não encontrado',
     });
@@ -157,8 +157,8 @@ export async function deletarAluno(req, res, next) {
     });
 
     res.status(204).send();
-  } catch (error) {
-    console.error(error);
+  } catch (erro) {
+    console.error(erro);
     res.status(500).json({
       erro: 'Erro ao deletar aluno',
     });

@@ -1,11 +1,11 @@
 info:
-  name: DELETE - Deletar mensagem --- /mensagens/:id
+  name: DELETE - Deletar mensagem inexistente --- /mensagens/999
   type: http
-  seq: 10
+  seq: 5
 
 http:
   method: DELETE
-  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens/4
+  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens/999
   auth: inherit
 
 runtime:
@@ -17,8 +17,7 @@ runtime:
         });
 
         test("deve seguir o padrão { erro: '...' }", function() {
-          expect(res.getBody()).to.have.property('erro');
-          expect(res.getBody().erro).to.equal('Aluno não encontrado');
+          expect(res.getBody().erro).to.equal('Mensagem não encontrada');
         });
 
 settings:
@@ -26,4 +25,3 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
-​

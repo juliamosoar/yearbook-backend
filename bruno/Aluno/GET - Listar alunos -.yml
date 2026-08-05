@@ -1,18 +1,11 @@
 info:
-  name: PUT -  Atualizar aluno ---/alunos/:id
+  name: "GET - Listar alunos --- /alunos "
   type: http
-  seq: 5
+  seq: 1
 
 http:
-  method: PUT
+  method: GET
   url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/alunos
-  auth: inherit
-  body:
-    type: json
-    data: |-
-      {
-        "cidade": "Montes Claros"
-      }
   auth: inherit
 
 runtime:
@@ -23,8 +16,8 @@ runtime:
           expect(res.getStatus()).to.equal(200);
         });
 
-        test("não deve retornar senhaHash", function() {
-          expect(res.getBody()).to.not.have.property('senhaHash');
+        test("deve retornar um array", function() {
+          expect(res.getBody()).to.be.an('array');
         });
 
 settings:
