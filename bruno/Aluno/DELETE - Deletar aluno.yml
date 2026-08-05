@@ -1,11 +1,11 @@
 info:
-  name: DELETE - Deletar aluno --- /alunos/:id copy
+  name: DELETE - Deletar aluno inexistente --- /alunos/:id
   type: http
   seq: 7
 
 http:
   method: DELETE
-  url: "{{baseUrl}}alunos/16"
+  url: "{{baseUrl}}alunos/12"
   auth: inherit
 
 runtime:
@@ -21,4 +21,3 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
-​

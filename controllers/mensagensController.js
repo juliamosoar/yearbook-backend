@@ -8,6 +8,7 @@ export async function listarMensagens(req, res, next) {
       include: {
         autor: {
           select: {
+            id: true,
             nome: true,
             fotoUrl: true,
           },
@@ -42,6 +43,15 @@ export async function criarMensagem(req, res, next) {
         texto,
         imagemUrl,
         autorId: Number(autorId),
+      },
+      include: {
+        autor: {
+          select: {
+            id: true,
+            nome: true,
+            fotoUrl: true,
+          },
+        },
       },
     });
 

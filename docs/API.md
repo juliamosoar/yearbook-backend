@@ -231,7 +231,8 @@ Cria uma nova mensagem no mural. O `autorId` é obtido a partir do token JWT —
 ```json
 {
   "texto": "Saudades!",
-  "imagemUrl": "https://exemplo.com/foto.jpg"
+  "imagemUrl": "https://exemplo.com/foto.jpg",
+  "autorId": 1
 }
 ```
 - **Resposta de sucesso:** `201 Created`

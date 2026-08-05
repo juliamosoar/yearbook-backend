@@ -5,7 +5,7 @@ info:
 
 http:
   method: DELETE
-  url: "{{baseUrl}}mensagens/15"
+  url: "{{baseUrl}}mensagens/3"
   auth: inherit
 
 runtime:

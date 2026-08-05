@@ -144,6 +144,7 @@ export async function deletarAluno(req, res, next) {
 
     const aluno = await prisma.aluno.findUnique({
       where: { id: Number(id) },
+      select: selectSemSenha,
     });
 
     if (!aluno) {
@@ -154,6 +155,7 @@ export async function deletarAluno(req, res, next) {
 
     await prisma.aluno.delete({
       where: { id: Number(id) },
+      select: selectSemSenha,
     });
 
     res.status(204).send();
