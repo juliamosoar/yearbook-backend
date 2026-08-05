@@ -5,7 +5,7 @@ info:
 
 http:
   method: DELETE
-  url: https://sturdy-couscous-jjwgrrv567rw2p457-3000.app.github.dev/mensagens/15
+  url: "{{baseUrl}}mensagens/15"
   auth: inherit
 
 runtime:
